@@ -1,0 +1,30 @@
+<h1><%= @question.title %></h1>
+
+<% @question.tags.each do |tag| %>
+  <span class='label label-primary'><%= tag.name %></span>
+<% end %>
+
+<% if @question.additional_info.present? %>
+  <br><br>
+  <strong>Additional Info:</strong>
+  <pre><%= @question.additional_info %></pre>
+<% end %>
+
+<br>
+<strong>Answer:</strong>
+<% if @question.answer %>
+  <p><%= raw markdown(@question.answer) %></p>
+<% end %>
+
+
+<div class='row'>
+  <div class='col-xs-12 col-sm-4 text-center'>
+    <%= link_to 'Previous', question_path(@question.previous), class: 'btn btn-primary' if @question.previous.present? %>
+  </div>
+  <div class='col-xs-12 col-sm-4 text-center'>
+    <%= link_to 'Back to Questions', :questions, class: 'btn btn-default' %>
+  </div>
+  <div class='col-xs-12 col-sm-4 text-center'>
+    <%= link_to 'Next', question_path(@question.next), class: 'btn btn-primary'  if @question.next.present? %>
+  </div>
+</div>
