@@ -1,0 +1,8 @@
+<h1>Questions</h1>
+
+<% @questions.each_with_index do |question, i| %>
+  <%= link_to question, class: 'btn btn-default btn-block question' do %>
+    <span><%= i+1 %></span>
+    <%= question.title %>
+  <% end %>
+<% end %>

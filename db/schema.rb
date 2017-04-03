@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170403003141) do
+ActiveRecord::Schema.define(version: 20170403003537) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",           limit: 255, null: false
@@ -26,8 +26,27 @@ ActiveRecord::Schema.define(version: 20170403003141) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
-  create_table "students", id: false, force: :cascade do |t|
-    t.integer  "id",            limit: 4
+  create_table "payments", id: false, force: :cascade do |t|
+    t.integer  "id",         limit: 4
+    t.integer  "student_id", limit: 4
+    t.decimal  "amount",               precision: 10
+    t.datetime "created_at"
+  end
+
+  add_index "payments", ["student_id"], name: "student_id", using: :btree
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "title",           limit: 255,   null: false
+    t.text     "additional_info", limit: 65535
+    t.text     "answer",          limit: 65535
+    t.string   "slug",            limit: 255
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "questions", ["slug"], name: "index_questions_on_slug", unique: true, using: :btree
+
+  create_table "students", force: :cascade do |t|
     t.string   "name",          limit: 250
     t.datetime "registered_at"
   end
@@ -59,4 +78,5 @@ ActiveRecord::Schema.define(version: 20170403003141) do
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
+  add_foreign_key "payments", "students", name: "payments_ibfk_1"
 end
