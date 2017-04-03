@@ -10,6 +10,8 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem 'friendly_id', '~> 5.1.0'
+gem 'acts-as-taggable-on', '~> 4.0'
 
 group :development do
   gem 'web-console', '~> 2.0'
