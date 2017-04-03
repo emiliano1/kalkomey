@@ -12,9 +12,12 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'friendly_id', '~> 5.1.0'
 gem 'acts-as-taggable-on', '~> 4.0'
+gem 'redcarpet'
+gem 'rouge'
 
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'rb-readline'
 end
 
