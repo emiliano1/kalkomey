@@ -3,9 +3,10 @@
 <% @question.tags.each do |tag| %>
   <span class='label label-primary'><%= tag.name %></span>
 <% end %>
+<br>
 
 <% if @question.additional_info.present? %>
-  <br><br>
+  <br>
   <strong>Additional Info:</strong>
   <pre><%= @question.additional_info %></pre>
 <% end %>
@@ -19,12 +20,12 @@
 
 <div class='row'>
   <div class='col-xs-12 col-sm-4 text-center'>
-    <%= link_to 'Previous', question_path(@question.previous), class: 'btn btn-primary' if @question.previous.present? %>
+    <%= link_to "#{fa_icon('chevron-left')} Previous".html_safe, question_path(@question.previous), class: 'btn btn-primary' if @question.previous.present? %>
   </div>
   <div class='col-xs-12 col-sm-4 text-center'>
-    <%= link_to 'Back to Questions', :questions, class: 'btn btn-default' %>
+    <%= link_to "#{fa_icon('th-list')} Back to Questions".html_safe, :questions, class: 'btn btn-default' %>
   </div>
   <div class='col-xs-12 col-sm-4 text-center'>
-    <%= link_to 'Next', question_path(@question.next), class: 'btn btn-primary'  if @question.next.present? %>
+    <%= link_to "#{fa_icon('chevron-right')} Next".html_safe, question_path(@question.next), class: 'btn btn-primary'  if @question.next.present? %>
   </div>
 </div>

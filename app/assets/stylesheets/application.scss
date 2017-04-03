@@ -13,6 +13,7 @@
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'font-awesome';
 @import 'highlight';
 
 body {
@@ -23,6 +24,11 @@ body {
 .description {
   padding: 40px 15px;
   text-align: center;
+}
+
+.home-button {
+  min-width: 180px;
+  margin-bottom: 20px;
 }
 
 a.question {

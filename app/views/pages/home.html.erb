@@ -1,6 +1,6 @@
 <div class='description'>
   <h1>Kalkomey Questions</h1>
-  <p class='lead'>This app provides answers for a couple of questions.</p>
+  <p class='lead'>The purpose of this app is to show my knowledge of Ruby on Rails and supporting technologies.</p>
 </div>
 
 <hr>
@@ -9,11 +9,17 @@
   <div class='col-xs-12 col-sm-6 col-sm-offset-3'>
     <div class='row'>
       <div class='col-xs-12 col-sm-6 text-center'>
-        <%= link_to 'Questions', :questions, class: 'btn btn-primary btn-lg' %>
+        <%= link_to :questions, class: 'btn btn-primary btn-lg home-button' do %>
+          <%= fa_icon 'th-list' %>
+          Questions
+        <% end %>
       </div>
 
       <div class='col-xs-12 col-sm-6 text-center'>
-        <%= link_to 'About', :about, class: 'btn btn-primary btn-lg' %>
+        <%= link_to :about, class: 'btn btn-primary btn-lg home-button' do %>
+          <%= fa_icon 'user' %>
+          About
+        <% end %>
       </div>
     </div>
   </div>
